@@ -3,7 +3,7 @@
   "description": "Print item of order",
   "version": "2.0",
   "permissions": [
-    "activeTab", "http://*:*"
+    "activeTab"
   ],
   "background": {
     "scripts": ["background.js", "order.js"],
