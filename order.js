@@ -21,6 +21,13 @@ var xhr = new XMLHttpRequest();
 xhr.open("POST", "http://127.0.0.1:3000/print", true);
 xhr.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
 xhr.onreadystatechange = function() {
-  // console.log(xhr.responseText);
+  if(xhr.readyState === 4) {
+    var str = "没有找到下列商品对应的打印机：\n";
+    var skus = JSON.parse(xhr.response);
+    for (var i = 0; i < skus.length; i++) {
+      str += skus[i]+"\n";
+    }
+    alert(str);
+  }
 }
 xhr.send(JSON.stringify(order));
