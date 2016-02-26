@@ -27,7 +27,9 @@ xhr.onreadystatechange = function() {
     for (var i = 0; i < skus.length; i++) {
       str += skus[i]+"\n";
     }
-    alert(str);
+    if(skus.length > 0) {
+      alert(str);
+    }
   }
 }
 xhr.send(JSON.stringify(order));
