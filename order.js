@@ -29,6 +29,8 @@ xhr.onreadystatechange = function() {
     }
     if(skus.length > 0) {
       alert(str);
+    } else {
+      alert("打印成功！");
     }
   }
 }
