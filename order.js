@@ -1,8 +1,12 @@
 var inputs = document.getElementsByClassName('orderId');
+var titles = document.getElementsByClassName('o-title');
 var order = {
   orderId: inputs[0].value,
+  serialNumber: titles[0].getElementsByTagName('span')[0].outerText,
   items:[]
 }
+
+
 
 var tbodies = document.getElementsByTagName('tbody');
 // console.log(/^商品编号/.test(tbodies[0].outerText));
