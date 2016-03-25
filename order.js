@@ -1,15 +1,17 @@
+var tags = document.getElementById('tags');
 var inputs = document.getElementsByClassName('orderId');
-var titles = document.getElementsByClassName('o-title');
+var lis = document.getElementsByClassName('o-cont')[5].getElementsByTagName('li');
+// console.log(lis[3].outerText.split("：")[1]);
+// console.log(/^门店名称：/.test(contents[5].outerText));
 var order = {
+  store: lis[0].outerText.split("：")[1],
   orderId: inputs[0].value,
-  serialNumber: titles[0].getElementsByTagName('span')[0].outerText,
+  serialNumber: tags.getElementsByTagName('span')[0].outerText,
+  dealAt: lis[3].outerText.split("：")[1],
   items:[]
 }
 
-
-
 var tbodies = document.getElementsByTagName('tbody');
-// console.log(/^商品编号/.test(tbodies[0].outerText));
 var trs = tbodies[0].getElementsByTagName('tr');
 for (var i = 1; i < trs.length; i++) {
   var tds = trs[i].getElementsByTagName('td');
@@ -22,7 +24,7 @@ for (var i = 1; i < trs.length; i++) {
 // console.log(order);
 
 var xhr = new XMLHttpRequest();
-xhr.open("POST", "http://127.0.0.1:3000/print", true);
+xhr.open("POST", "http://localhost:3000/print", true);
 xhr.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
 xhr.onreadystatechange = function() {
   if(xhr.readyState === 4) {
